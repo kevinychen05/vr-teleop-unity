@@ -47,6 +47,8 @@ Replace `~/path/to/vr-teleop-unity` with the actual path to this repo on your ma
 roslaunch test_robot gazebo.launch
 ```
 
+The configuration of the Gazebo environment, including all the models and objects in the scene, can be found in `ros-code/test_robot/launch/Hp_test_uniwa_campus.world`.
+
 ### 4. Run ROS Nodes
 
 After launching the robot simulation, open new terminals (sourced with `setup.bash`) and run the following:
@@ -76,5 +78,5 @@ These two nodes ensure that:
 - Build and run the scene in Unity
 - Move your right hand — the simulated robot will mirror your hand motions in Gazebo. If you make a grabbing gesture (like a fist), the robot should mirror that by closing its claws. Now try picking up the cube and moving it around — the cube you see through the Meta Quest should follow suit.
 
-  > **Note:** This project was developed as part of a summer research internship at the CoNSeRT Lab in Athens, Greece. Feel free to use or adapt it for your own VR/ROS integration experiments!
+  > **Note:** There are several code files in this repo that are irrelevant (used for earlier testing) or that came with demo packages such as Unity Robotics Hub's ROS-Unity integration tutorials. The most important files are `HandSkeletonPublisher.cs` and `CubePoseSubscriber.cs` under `unity-project/Assets/Scripts`, as well as `hand_skeleton_subscriber.py` under `ros-code/unity_robotics_demo_msgs/scripts` and `cube_pose_publisher.py` under `ros-code/test_robot/script`.
 
