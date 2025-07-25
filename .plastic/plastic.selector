@@ -1,0 +1,4 @@
+repository "Hand Tracking 2025-06-25_10-46-24/Hand Tracking@2474661052400@cloud"
+  path "/"
+    br "/main"
+    co "/main"
