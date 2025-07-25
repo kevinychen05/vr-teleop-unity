@@ -40,3 +40,15 @@ source devel/setup.bash
 ```
 
 Replace `~/path/to/vr-teleop-unity` with the actual path to this repo on your machine.
+
+### 3. Launch the Robot Simulation
+
+```bash
+roslaunch test_robot gazebo.launch
+```
+
+### 4. Run the Unity Scene
+
+- Open `vr-teleop-unity/unity-project` in Unity
+- If not already done, configure your Unity project for Meta XR development by following the steps outlined [here](https://developers.meta.com/horizon/documentation/unity/unity-tutorial-hello-vr) up until (not including) the section titled "Add the Meta XR camera rig".
+- 
