@@ -49,7 +49,7 @@ roslaunch test_robot gazebo.launch
 
 ### 4. Run ROS Nodes
 
-After launching the robot simulation, open a new terminal (sourced with `setup.bash`) and run the following:
+After launching the robot simulation, open new terminals (sourced with `setup.bash`) and run the following:
 
 Hand Tracking Subscriber (controls robot with your hand):
 
