@@ -47,8 +47,31 @@ Replace `~/path/to/vr-teleop-unity` with the actual path to this repo on your ma
 roslaunch test_robot gazebo.launch
 ```
 
-### 4. Run the Unity Scene
+### 4. Run ROS Nodes
+
+After launching the robot simulation, open a new terminal (sourced with `setup.bash`) and run the following:
+
+Hand Tracking Subscriber (controls robot with your hand):
+
+```bash
+rosrun unity_robotics_demo_msgs hand_skeleton_subscriber.py
+```
+
+Cube Pose Publisher (syncs Gazebo cube to Unity cube):
+
+```bash
+rosrun test_robot cube_pose_publisher.py
+```
+
+These two nodes ensure that:
+- Your Meta Quest 3 hand motion controls the robot arm in Gazebo
+- The cube in Gazebo is tracked and mirrored by the cube in Unity
+
+### 5. Run the Unity Scene
 
 - Open `vr-teleop-unity/unity-project` in Unity
 - If not already done, configure your Unity project for Meta XR development by following the steps outlined [here](https://developers.meta.com/horizon/documentation/unity/unity-tutorial-hello-vr) up until (not including) the section titled "Add the Meta XR camera rig".
-- 
+- If not already done, set up ROS-Unity integration by following the steps outlined [here](https://github.com/Unity-Technologies/Unity-Robotics-Hub/blob/main/tutorials/ros_unity_integration/setup.md)
+- Connect your Meta Quest 3
+- Build and run the scene in Unity
+- Move your right hand — the simulated robot will mirror your hand motions in Gazebo. If you make a grabbing gesture (like a fist), the robot should mirror that by closing its claws. Now try picking up the cube and moving it around — the cube you see through the Meta Quest should follow suit.
