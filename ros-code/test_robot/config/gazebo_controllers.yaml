@@ -1,0 +1,105 @@
+# Publish joint states
+joint_state_controller:
+  type: joint_state_controller/JointStateController
+  publish_rate: 50
+###############################################################################
+# Add this at the top of your controller YAML:
+motion_generators:
+
+  # position‐based “motion generator”
+  position:
+    type: position_controllers/JointPositionController
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    gains:
+      panda_joint1: { p: 150.0,  i: 0.01, d: 1.0 }
+      panda_joint2: { p: 150.0,  i: 0.01, d: 1.0 }
+      panda_joint3: { p: 150.0,  i: 0.01, d: 1.0 }
+      panda_joint4: { p: 150.0,  i: 0.01, d: 1.0 }
+      panda_joint5: { p: 100.0,  i: 0.01, d: 1.0 }
+      panda_joint6: { p:  50.0,  i: 0.00, d: 1.0 }
+      panda_joint7: { p:  20.0,  i: 0.00, d: 1.0 }
+
+  # velocity‐based “motion generator”
+  velocity:
+    type: velocity_controllers/JointVelocityController
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    gains:
+      panda_joint1: { p:  50.0,  i: 0.00, d: 0.0 }
+      panda_joint2: { p:  50.0,  i: 0.00, d: 0.0 }
+      panda_joint3: { p:  50.0,  i: 0.00, d: 0.0 }
+      panda_joint4: { p:  50.0,  i: 0.00, d: 0.0 }
+      panda_joint5: { p:  50.0,  i: 0.00, d: 0.0 }
+      panda_joint6: { p:  50.0,  i: 0.00, d: 0.0 }
+      panda_joint7: { p:  50.0,  i: 0.00, d: 0.0 }
+###############################################################################
+# Arm controller
+panda_arm_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - panda_joint1
+    - panda_joint2
+    - panda_joint3
+    - panda_joint4
+    - panda_joint5
+    - panda_joint6
+    - panda_joint7
+  gains:
+    panda_joint1: { p: 15000, d: 50, i: 0.01 }
+    panda_joint2: { p: 15000, d: 50, i: 0.01 }
+    panda_joint3: { p: 15000, d: 50, i: 0.01 }
+    panda_joint4: { p: 15000, d: 50, i: 0.01 }
+    panda_joint5: { p: 10000, d: 50, i: 0.01 }
+    panda_joint6: { p: 5000, d: 50, i: 0.01 }
+    panda_joint7: { p: 2000, d: 50, i: 0.01 }
+  state_publish_rate: 25
+  constraints:
+    goal_time: 2.0
+
+# Hand (gripper) controller
+hand_controller:
+  type: effort_controllers/JointTrajectoryController
+  joints:
+    - panda_finger_joint1
+    - panda_finger_joint2
+  gains:
+    panda_finger_joint1: { p: 5, d: 1.0, i: 0.0 }
+    panda_finger_joint2: { p: 5, d: 1.0, i: 0.0 }
+  state_publish_rate: 25
+
+# Declare available controllers for MoveIt (if needed)
+controller_list:
+  - name: panda_arm_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+
+  - name: hand_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - panda_finger_joint1
+      - panda_finger_joint2
+
