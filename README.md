@@ -14,6 +14,9 @@ This project was developed and tested on Windows 11 and Ubuntu 20.04 with:
 - **Meta XR SDK + Interaction SDK**
 - **ROS–Unity integration** (via ROS-TCP-Connector and Unity Robotics Hub)
 
+> **Note:** In the original iteration of this project, Unity (with the Meta Quest 3 connected) was running on a Windows 11 PC, which was remotely connected to a Ubuntu 20.04 machine running ROS Noetic and Gazebo.
+This setup allowed for cross-platform integration between VR input and robot simulation over a local network.
+
 ---
 
 ## Getting Started
