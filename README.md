@@ -75,3 +75,6 @@ These two nodes ensure that:
 - Connect your Meta Quest 3
 - Build and run the scene in Unity
 - Move your right hand — the simulated robot will mirror your hand motions in Gazebo. If you make a grabbing gesture (like a fist), the robot should mirror that by closing its claws. Now try picking up the cube and moving it around — the cube you see through the Meta Quest should follow suit.
+
+  > **Note:** This project was developed as part of a summer research internship at the CoNSeRT Lab in Athens, Greece. Feel free to use or adapt it for your own VR/ROS integration experiments!
+
