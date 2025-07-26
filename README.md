@@ -8,7 +8,7 @@ This project enables remote robotic manipulation using hand tracking from the Me
 
 This project was developed and tested on Windows 11 and Ubuntu 20.04 with:
 
-- **ROS Noetic**
+- **ROS1 Noetic**
 - **Unity 6.1.3**
 - **Meta Quest 3**
 - **Meta XR SDK + Interaction SDK**
@@ -83,3 +83,5 @@ These two nodes ensure that:
 
 > **Note:** There are several code files in this repo that are irrelevant (used for earlier testing) or that came with demo packages such as Unity Robotics Hub's ROS-Unity integration tutorials. The most important files are `HandSkeletonPublisher.cs` and `CubePoseSubscriber.cs` under `unity-project/Assets/Scripts`, as well as `hand_skeleton_subscriber.py` under `ros-code/unity_robotics_demo_msgs/scripts` and `cube_pose_publisher.py` under `ros-code/test_robot/script`.
 
+### 5. Disclaimer
+The Stl mesh files for the collision are from [AndrejOrsula](https://github.com/justagist/franka_panda_description/tree/master?tab=readme-ov-file),licensed under the BSD 3-Clause License
